@@ -52,3 +52,4 @@ To test our app you can clone our repo using the following commands
 If you want to be a contributor to this project, just fork the project and submit a `pull request (Pr)` for approval.
 
 Join our slack [channel](https://join.slack.com/t/slack-b977945/shared_invite/zt-185p8bgud-cIHI5_m5UzMSyEotx81Q8w) for any questions or to interact with others of the development team.
+.
