@@ -6,9 +6,8 @@
 
 ## [1. Introduction](#introduction)
 ## [2. Problem Statement](#problem-statement)
-## [3. UI-UX Design](#ui-ux-design)
-## [4. Quick start](#quick-start)
-## [5. Contributors](#contributors)
+## [3. Quick start](#quick-start)
+## [4. Contributors](#contributors)
 
 #
 
@@ -24,13 +23,6 @@ In reality, because of the inefficient ways the results are compiled and process
 Hence, with the compilation of results and issuance of transcripts to students' via an automated and online platform these issues would be addressed.
 
 The developers of this solution are proposing a web app that can be used by both academic professionals to compile results and students or parents to request their results and transcripts. The project would be built using different framework and would be upgraded over different versions.
-#
-
-> ## UI-UX Design
-
-The project UI/UX design can be found at [Figma.com](https://www.figma.com/file/wzB1i6sBaI00wwkhOQXRZx/EDSU-team-library?node-id=414%3A363) and shown below.
-
-![https://www.figma.com/file/wzB1i6sBaI00wwkhOQXRZx/EDSU-team-library?node-id=414%3A363](https://user-images.githubusercontent.com/19577206/157766024-b05142a5-515d-4a85-859a-3ca433a666f6.png)
 #
 
 > ## Quick start
