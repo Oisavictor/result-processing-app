@@ -27,13 +27,13 @@ The developers of this solution are proposing a web app that can be used by both
 
 > ## Quick start
 
-This project is intended to be used as an installable package, but you should be able try out its functionality by reading the README and exploring its `frontend`, and `backend` directories
+This project is intended to be used as an installable package, but you should be able try out its functionality by reading the README and exploring its `backend` directory
 
 To test our app you can clone our repo using the following commands
 ```sh
-    git clone https://github.com/oisaVictor/result-processing-app.git
+    git clone https://github.com/Oisavictor/result-processing-app.git
 
-    cd CGPA-Web-Calculator
+    cd result-processing-app
 
     npm install
 
