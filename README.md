@@ -1,4 +1,4 @@
-## C.G.P.A Web Calculator
+# result-processing-app
 #
 
 > ## Table of content
@@ -38,7 +38,7 @@ This project is intended to be used as an installable package, but you should be
 
 To test our app you can clone our repo using the following commands
 ```sh
-    git clone https://github.com/Oisavictor/CGPA-Web-Calculator.git
+    git clone https://github.com/oisaVictor/result-processing-app.git
 
     cd CGPA-Web-Calculator
 
@@ -53,3 +53,4 @@ If you want to be a contributor to this project, just fork the project and submi
 
 Join our slack [channel](https://join.slack.com/t/slack-b977945/shared_invite/zt-185p8bgud-cIHI5_m5UzMSyEotx81Q8w) for any questions or to interact with others of the development team.
 .
+
