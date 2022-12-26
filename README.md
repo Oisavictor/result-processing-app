@@ -1,4 +1,4 @@
-# result-processing-app
+# result Processing Application
 
 #
 
@@ -13,6 +13,7 @@
 
 > ## Introduction
 [Edo State University (EDSU), Uzairue](https://www.edouniversity.edu.ng/) is a government-owned institution that has been rated as one of the forerunners of tertiary education, with the National universities commission's most recent ranking naming it as one of the top state university. In order to set yet another milestone in the educational sector, hence in an effort to set yet another standard, the institution, which had previously relied on manual techniques for computing and analysing students' grades and results, has decided to go completely automated in the collection, preparation, and transmission of its results and transcript.
+
 #
 
 > ## Problem Statement
@@ -23,6 +24,7 @@ In reality, because of the inefficient ways the results are compiled and process
 Hence, with the compilation of results and issuance of transcripts to students' via an automated and online platform these issues would be addressed.
 
 The developers of this solution are proposing a web app that can be used by both academic professionals to compile results and students or parents to request their results and transcripts. The project would be built using different framework and would be upgraded over different versions.
+
 #
 
 > ## Quick start
