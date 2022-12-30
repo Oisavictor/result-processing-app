@@ -1,10 +1,10 @@
-const studentModel = require('../models/studentModel');
+import { StudentModel} from '../../models/studentModel.js';
 
-class Student {
+class Student{
 
     async getAllStudents(){
        try {
-        const allStudents = await studentModel.findAll();
+        const allStudents = await StudentModel.findAll();
         return allStudents;
        } catch (error) {
         return error;
@@ -13,7 +13,7 @@ class Student {
 
     async getStudentById(Id){
         try {
-            const student = await studentModel.findOne({
+            const student = await StudentModel.findOne({
                 where: {
                     studentID: Id
                 }
@@ -25,9 +25,12 @@ class Student {
     }
 
     async addStudent(args){
-        const {name, studentID, level, department, faculty} = args;
+        let {name, studentID, level, department, faculty} = args;
         try {
-            const newStudent  = studentModel.build({name, studentID, level, department, faculty});
+            studentID = studentID.toLowerCase();
+            faculty = faculty.toLowerCase();
+            department = department.toLowerCase();
+            const newStudent  = StudentModel.build({name, studentID, level, department, faculty});
             await newStudent.save();
             return newStudent;
         } catch(error){
@@ -38,8 +41,5 @@ class Student {
 }
 
 
-const student = new Student();
+export const student = new Student();
 
-module.exports = {
-    student
-}

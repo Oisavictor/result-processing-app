@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db/sequelize');
+import { DataTypes } from 'sequelize';
+import {sequelize} from '../db/sequelize.js';
 
-const Student = sequelize.define('Student',{
+export const StudentModel = sequelize.define('Student',{
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -28,5 +28,3 @@ const Student = sequelize.define('Student',{
     }
 
 });
-
-module.exports = Student;
