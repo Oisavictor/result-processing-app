@@ -1,76 +1,21 @@
-const {
-        GraphQLObjectType,
-        GraphQLString,
-        GraphQLSchema,
-        GraphQLList,
-        GraphQLNonNull,
-} = require("graphql");
+import {GraphQLObjectType,GraphQLSchema} from "graphql";
 
-const {student} = require('../utils/Student');
+import {getAllStudents,getStudentById} from '../utils/queries/studentQueries.js';
+import {getCourseById} from '../utils/queries/courseQueries.js'
+import {addStudent} from '../utils/mutations/studentMutations.js';
+import {addCourses} from '../utils/mutations/courseMutations.js';
 
 
-
-const CourseType = new GraphQLObjectType({
-        name: "Course",
-        fields: () => ({
-                id: { type: GraphQLString },
-                courseTitle: { type: GraphQLString },
-                semester: { type: GraphQLString },
-                session: { type: GraphQLString },
-                students: {
-                        type : new GraphQLList(StudentType),
-                        resolve(parent, args){
-
-                        }
-                                
-                }
-        }),
-});
-
-const StudentType = new GraphQLObjectType({
-        name: "Student",
-        fields: () => ({
-                name: { type: GraphQLString},
-                studentID: { type: GraphQLString },
-                level: { type: GraphQLString },
-                faculty: { type: GraphQLString },
-                department: { type: GraphQLString },
-                listOfCourses: {
-                        type: new GraphQLList(CourseType),
-                        resolve(parent, args) {
-                                console.log(args.courseTitle);
-                        },
-                }
-        })
-});
-
-const MainQuery = new GraphQLObjectType({
-        name: "MainQuery",
+const RootQuery = new GraphQLObjectType({
+        name: "RootQuery",
         fields: {
                 //#region Course Queries
-                courses: {
-                        type: CourseType,
-                        args: { courseID: { type: GraphQLString } },
-                        resolve(parent, args) {
-                               
-                        },
-                },
+                getCourseById,
                 //#endregion
-
+                
                 //#region  Student Queries
-                getStudentById: {
-                        type: StudentType,
-                        args: { studentID: { type: GraphQLString } },
-                        resolve(args) {
-                                return student.getStudentById(args.studentID)
-                        }
-                },
-                getAllStudents:{
-                        type: new GraphQLList(StudentType),
-                        resolve(){
-                                return student.getAllStudents();
-                        }
-                }
+                getAllStudents,
+                getStudentById
                 //#endregion
         },
 });
@@ -79,36 +24,20 @@ const MainQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
         name: 'Mutation',
         fields: {
-                addStudent: {
-                        type: StudentType,
-                        args:{
-                                name: {type: new GraphQLNonNull(GraphQLString)},
-                                studentID: {type: new GraphQLNonNull(GraphQLString)},
-                                level: {type: new GraphQLNonNull(GraphQLString)},
-                                faculty: {type: new GraphQLNonNull(GraphQLString)},
-                                department: {type: new GraphQLNonNull(GraphQLString)},
-                        },
-                        resolve(args){                                
-                               return student.addStudent(args)
-                        }
-                },
-                addCourses: {
-                        type: CourseType,
-                        args: {
-                                courseID: {type: new GraphQLNonNull(GraphQLString)},
-                                courseTitle: {type: new GraphQLNonNull(GraphQLString)},
-                                semester: {type: new GraphQLNonNull(GraphQLString)},
-                                session: {type: new GraphQLNonNull(GraphQLString)}
-                        },
-                        resolve(parent, args){
+                //#region Student Mutations
+                addStudent,
 
-                        }
-                }
+                //#endregion
+
+                //#region Courses Mutation
+                addCourses,
+
+                //#endregion
         }
 })
 
 
-module.exports = new GraphQLSchema({
-        query: MainQuery,
+export const schema = new GraphQLSchema({
+        query: RootQuery,
         mutation: Mutation
 });
