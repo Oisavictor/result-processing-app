@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Students {
+  id            String       @id @default(uuid())
+  firstName     String       @db.VarChar(255)
+  middleName    String?      @db.VarChar(255)
+  lastName      String       @db.VarChar(255)
+  email         String       @unique @db.VarChar(255)
+  matricNumber  String       @unique @db.VarChar(255)
+  admissionDate DateTime?
+  levelId       String?      @db.VarChar(255)
+  department    Departments? @relation(fields: [departmentId], references: [id])
+  departmentId  String?      @db.VarChar(255)
+  faculty       Faculty?     @relation(fields: [facultyId], references: [id])
+  facultyId     String?      @db.VarChar(255)
+}
+
+model Levels {
+  id   String @id @default(uuid())
+  name String @db.VarChar(255)
+  code Int
+}
+
+model Faculty {
+  id          String        @id @default(uuid())
+  name        String        @db.VarChar(255)
+  createdAt   DateTime      @default(now())
+  departments Departments[]
+  students    Students[]
+}
+
+model Departments {
+  id        String     @id @default(uuid())
+  name      String     @db.VarChar(255)
+  students  Students[]
+  faculty   Faculty    @relation(fields: [facultyId], references: [id])
+  facultyId String
+}
