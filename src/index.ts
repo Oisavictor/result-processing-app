@@ -8,9 +8,6 @@ import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'type-graphql';
 import { StudentResolver } from './utils/resolver/studentResolver';
 
-//  import * as sequelizeDB from './db/sequelize'
-//  sequelizeDB.sequelize.
-
 async function Main(){
   const app = express();
 
